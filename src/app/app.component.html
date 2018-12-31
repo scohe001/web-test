@@ -1,8 +1,39 @@
 <app-layout>
-  <div class="jumbotron">
-    <h1>Angular CLI v6 + Bootstrap & FontAwesome</h1>
-    <p>
-      Here's my first Bootstrap test! Using FontAwesome to make it look a little nicer.
-    </p>
+  <app-simple-alert #alerter></app-simple-alert>
+
+  <ngb-tabset justify="justified" #t="ngbTabset">
+    <ngb-tab title="Send Request" id="tab-request">
+      <ng-template ngbTabContent>
+        <app-send-request #sender>
+  	      <p>
+  	        <button type="button" class="btn btn-primary" (click)="add_alert()">TEST</button>
+  	        <button type="button" class="btn btn-primary" (click)="sender.isProgressShowing = !sender.isProgressShowing">
+              Toggle Progress
+            </button>
+  	      </p>
+        </app-send-request>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="History" id="tab-history">
+      <ng-template ngbTabContent>
+	    <app-history></app-history>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="tab-about">
+      <ng-template ngbTabTitle><b>About</b></ng-template>
+      <ng-template ngbTabContent>
+	    <app-about>
+  	      <p>
+  	        <button type="button" class="btn btn-primary" (click)="t.select('tab-request')">Return Home</button>
+  	      </p>
+		</app-about>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+
+  <!--
+  <div>
+    <app-lamp></app-lamp>
   </div>
+  -->
 </app-layout>

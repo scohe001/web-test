@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <p>
+    Look at me! I'm a send request component! Wanna see a cool progress bar? Okay!!
+  </p>
+  <ng-content></ng-content>
+
+  <div [hidden]="this.isProgressShowing">
+    <p>
+      <ngb-progressbar type="info" [value]="100" [striped]="true" [animated]="true">
+        Waiting for response...
+      </ngb-progressbar>
+    </p>
+  </div>
+</div>
